@@ -22,7 +22,7 @@ public class PetStore {
     @ManyToMany
     private List<Product> products;
 
-    @OneToMany(mappedBy = "PetStore")
+    @OneToMany(mappedBy = "petStore")
     private List<Animal> animals;
 
     @OneToOne
