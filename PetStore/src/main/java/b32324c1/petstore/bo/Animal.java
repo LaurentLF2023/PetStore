@@ -6,6 +6,8 @@ import java.util.Date;
 
 @Entity
 @Table
+@Inheritance(strategy=InheritanceType.JOINED)
+@DiscriminatorColumn(name="ANIMAL_TYPE")
 public class Animal {
 
     @GeneratedValue(strategy = GenerationType.IDENTITY)
