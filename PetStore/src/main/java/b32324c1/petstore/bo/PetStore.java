@@ -2,6 +2,8 @@ package b32324c1.petstore.bo;
 
 import jakarta.persistence.*;
 
+import java.util.List;
+
 @Entity
 @Table(name="PETSTORE")
 public class PetStore {
@@ -16,6 +18,16 @@ public class PetStore {
 
     @Column(name="MANAGERNAME")
     private String managerName;
+
+    @ManyToMany
+    private List<Product> products;
+
+    @OneToMany(mappedBy = "PetStore")
+    private List<Animal> animals;
+
+    @OneToOne
+    @JoinColumn(name="IDADDRESS",nullable = false)
+    private Address address;
 
     public PetStore(){}
 
@@ -33,6 +45,13 @@ public class PetStore {
 
     public void setManagerName(String managerName) {
         this.managerName = managerName;
+    }
+    public Address getAddress() {
+        return address;
+    }
+
+    public void setAddress(Address address) {
+        this.address = address;
     }
 
     @Override

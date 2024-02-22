@@ -21,6 +21,9 @@ public class Animal {
     @Column(name="COLOR")
     private String color;
 
+    @ManyToOne(cascade = CascadeType.ALL)
+    private PetStore petStore;
+
     public Animal() {}
 
     public Long getId() {

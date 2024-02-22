@@ -2,6 +2,8 @@ package b32324c1.petstore.bo;
 
 import jakarta.persistence.*;
 
+import java.util.List;
+
 @Entity
 @Table
 public class Product {
@@ -22,6 +24,9 @@ public class Product {
 
     @Column(name="PRICE")
     private Double price;
+
+    @ManyToMany
+    private List<PetStore> PetStores;
 
     public Product() {}
 
